@@ -36,11 +36,13 @@ app.post("/", async (req, res) => {
     }
 
     const response = await axios.get(url);
+    console.log("response", response);
     getPreviewFromContent({ ...response, url }).then((data) => {
       return res.status(200).json(data);
     });
   } catch (error) {
-    return res.status(401).json({ message: " url is not valid" });
+    console.log("error", error);
+    return res.status(401).json({ message: "url is not valid" });
   }
 });
 

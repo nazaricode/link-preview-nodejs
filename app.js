@@ -32,7 +32,7 @@ app.post("/", async (req, res) => {
   try {
     const { url } = req.body;
     if (!url || url == "" || !isValidHttpUrl(url)) {
-      return res.status(401).json({ message: "url is not valid" });
+      return res.status(401).json({ message: "Error: url is not valid" });
     }
 
     const response = await axios.get(url);
@@ -40,7 +40,7 @@ app.post("/", async (req, res) => {
       return res.status(200).json(data);
     });
   } catch (error) {
-    return res.status(401).json({ message: "url is not valid" });
+    return res.status(401).json({ message: " url is not valid" });
   }
 });
 

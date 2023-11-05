@@ -34,9 +34,9 @@ app.post("/", async (req, res) => {
     if (!url || url == "" || !isValidHttpUrl(url)) {
       return res.status(401).json({ message: "Error: url is not valid" });
     }
-    console.log("url", url);
+    console.log("----url", url);
     const response = await axios.get(url);
-    console.log("response", response);
+    console.log("response");
     getPreviewFromContent({ ...response, url }).then((data) => {
       return res.status(200).json(data);
     });
